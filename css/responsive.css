@@ -128,6 +128,20 @@ footer h3 {
 .btnlist {
 	margin-right: 80px;
 }
+/* Keep logo clear of the absolute hamburger toggle */
+.site-header .LogoPart .logo {
+	max-width: calc(100% - 56px);
+	box-sizing: border-box;
+}
+.site-header .LogoPart .logo img {
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	max-height: 52px;
+}
+.stellarnav.mobile {
+	z-index: 20;
+}
 .AboutArea h3 {
 	padding-right: 0;
 }
@@ -176,6 +190,46 @@ footer .form-group {
 }
 }
 
+@media (max-width: 991px) {
+/* Stack copyright + legal links before they crowd into one cramped row */
+footer .copy {
+	text-align: center;
+}
+footer .copy .copy-bar {
+	flex-wrap: wrap;
+	justify-content: center;
+}
+footer .copy .copy-text,
+footer .copy .copy-links {
+	flex: 0 0 100%;
+	max-width: 100%;
+	white-space: normal;
+	margin-bottom: 10px;
+}
+footer .copy .copy-links {
+	margin-bottom: 0;
+}
+footer .copy ul {
+	flex-wrap: wrap;
+	justify-content: center;
+	white-space: normal;
+	margin-top: 0;
+	gap: 8px 0;
+}
+footer .copy ul li {
+	border-left: 0;
+	margin: 4px 8px;
+	padding: 0;
+}
+footer .opacity > .container > .row > aside {
+	margin-bottom: 10px;
+}
+footer .f-logo img {
+	max-width: 100%;
+	height: auto;
+}
+}
+
 @media (max-width: 767px) {
 .btnlist {
 	display: none;
@@ -183,12 +237,15 @@ footer .form-group {
 .AboutArea h3, h3 {
 	font-size: 26px;
 }
-footer .copy {
-	text-align: center;
+.site-header .LogoPart .logo {
+	max-width: calc(100% - 52px);
 }
-footer .copy ul {
-	text-align: center;
-	margin-top: 15px;
+.site-header .LogoPart .logo img {
+	max-height: 44px;
+}
+footer .opacity {
+	padding-left: 0;
+	padding-right: 0;
 }
 #backtop {
 	bottom: 35px;
@@ -199,8 +256,13 @@ footer .copy ul {
 }
 
 @media (max-width: 567px) {
-#banner .slider .slick-track .item {
+#banner {
+	min-height: 250px;
+}
+#banner .slider .slick-track .item,
+#banner .slider .item {
 	height: 250px;
+	min-height: 250px;
 	overflow: hidden;
 }
 #banner .slider .item img.thumb {

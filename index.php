@@ -87,7 +87,7 @@ if (is_from_google()) {
                   <aside class="col-xl-6 col-lg-7">
                      <h2><small>Get a Low</small>MORTGAGE Rate!</h2>
                      <p>Apply now - you could receive a pre-approval today! EliteMortgageFinder.com is an easy and effective way to secure a mortgage.</p>
-                     <a href="#stepform" class="btn btn-primary btn-lg">Buy A Home</a> <a href="#stepform" class="btn btn-warning btn-lg">Refinance</a> <a href="sellhome.php" class="btn btn-warning btn-lg">Sell Home</a>
+                     <a href="#stepform" class="btn btn-primary btn-lg">Buy A Home</a> <a href="#stepform" class="btn btn-warning btn-lg">Refinance</a> <a href="sellhome.php" class="btn btn-outline-primary btn-lg">Sell Home</a>
                   </aside>
                </div>
             </article>
@@ -101,7 +101,7 @@ if (is_from_google()) {
                   <aside class="col-xl-6 col-lg-7">
                      <h2><small>Get a Low</small>MORTGAGE Rate!</h2>
                      <p>Explore your home loan options for a new mortgage loan, mortgage refinance, or home equity loan.</p>
-                     <a href="#stepform" class="btn btn-primary btn-lg">Buy A Home</a> <a href="#stepform" class="btn btn-warning btn-lg">Refinance</a> <a href="sellhome.php" class="btn btn-warning btn-lg">Sell Home</a>
+                     <a href="#stepform" class="btn btn-primary btn-lg">Buy A Home</a> <a href="#stepform" class="btn btn-warning btn-lg">Refinance</a> <a href="sellhome.php" class="btn btn-outline-primary btn-lg">Sell Home</a>
                   </aside>
                </div>
             </article>

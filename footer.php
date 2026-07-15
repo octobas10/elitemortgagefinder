@@ -44,8 +44,9 @@
 		</article>
 		<section class="copy">
 			<article class="container">
-				<div class="row">
-					<aside class="col-md-12">
+				<div class="row align-items-center copy-bar">
+					<aside class="col-auto copy-text">Copyright &copy; <?php echo date('Y') ?> Elite Mortage Finder. All rights reserved</aside>
+					<aside class="col copy-links">
 						<ul>
 							<li><a href="ccpa.php">Do Not Sell My Personal Information</a></li>
 							<li><a href="optout.php">Opt Out</a></li>
@@ -55,8 +56,6 @@
 							<?php } ?>
 						</ul>
 					</aside>
-					<aside class="col-md-12"> Copyright &copy; <?php echo date('Y') ?> Elite Mortage Finder. All rights reserved </aside>
-
 				</div>
 				<div style="text-align:center;">
 					<script language='JavaScript' type='text/javascript' src='https://ads.elitemate.com/adx.js'></script>

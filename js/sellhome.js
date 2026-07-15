@@ -26,6 +26,19 @@
       return;
     }
 
+    $('.sellhome-select-wrap select').each(function () {
+      var $select = $(this);
+      function syncPlaceholder() {
+        if (!$select.val()) {
+          $select.addClass('sellhome-placeholder');
+        } else {
+          $select.removeClass('sellhome-placeholder');
+        }
+      }
+      syncPlaceholder();
+      $select.on('change', syncPlaceholder);
+    });
+
     if ($.fn.datetimepicker) {
       $('#dob').datetimepicker({
         format: 'MM/DD/YYYY',
@@ -96,6 +109,9 @@
         success: function (json) {
           if (json && json.success === 'success') {
             $form.hide();
+            $('.sellhome-form-intro').hide();
+            $('.sellhome-cta').hide();
+            $('.sellhome-form-box').addClass('is-success');
             $('#sellhome-success').show();
             $('html, body').animate({ scrollTop: $('#sell-home-form').offset().top - 40 }, 400);
           } else {

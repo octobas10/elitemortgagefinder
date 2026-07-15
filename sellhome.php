@@ -46,13 +46,24 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
       <article class="container">
          <div class="sellhome-form-intro text-center">
             <h2>Get a Free Sell-Home Quote</h2>
-            <p>Complete the form below. Estimates are fine — a specialist will follow up to help you sell your home.</p>
+            <p>Complete the form below. Estimates are fine - a specialist will follow up to help you sell your home.</p>
          </div>
 
          <div class="sellhome-form-box">
-            <div id="sellhome-success" class="sellhome-success" style="display:none;">
-               <h3>Thanks for registering to EliteMortgageFinder.com to Sell Your Home!</h3>
-               <p>One of our Sell Your Home Associates will reach out shortly via email, telephone, text, or postal mail to help sell your home. Most associates will need a bit more information to assist you. Good luck!</p>
+            <div id="sellhome-success" class="sellhome-success" style="display:none;" role="status" aria-live="polite">
+               <div class="sellhome-success-icon" aria-hidden="true"><i class="fas fa-check"></i></div>
+               <h3>You're all set</h3>
+               <p class="sellhome-success-lead">Thanks for submitting your sell-home request. A specialist will follow up shortly by email, phone, or text.</p>
+               <ul class="sellhome-success-next">
+                  <li><i class="fas fa-clock"></i> Most sellers hear back within one business day</li>
+                  <li><i class="fas fa-comments"></i> Keep your phone nearby for a quick follow-up</li>
+                  <li><i class="fas fa-file-alt"></i> Have basic property details ready if they ask</li>
+               </ul>
+               <p class="sellhome-success-alt">Looking for something else?</p>
+               <div class="sellhome-success-actions">
+                  <a href="index.php#stepform" class="btn btn-primary">Buy A Home</a>
+                  <a href="index.php#stepform" class="btn btn-warning">Refinance</a>
+               </div>
             </div>
 
             <form id="sellhomeform" name="sellhomeform" method="post" action="" novalidate>
@@ -65,12 +76,12 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
 
                      <fieldset class="sellhome-fieldset">
                         <legend>Property Details</legend>
-                        <div class="sellhome-form-grid">
+                        <div class="sellhome-form-grid sellhome-grid-4">
                            <div class="form-group">
                               <label for="property_desc">Property Type <span>*</span></label>
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="property_desc" id="property_desc" required>
-                                    <option value="">Select property type</option>
+                                    <option value="" disabled selected>Select property type</option>
                                     <option value="1">Single Family</option>
                                     <option value="2">Multi Family</option>
                                     <option value="3">Town House</option>
@@ -83,8 +94,8 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                               <label for="sell_timeframe">When do you plan to sell? <span>*</span></label>
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="sell_timeframe" id="sell_timeframe" required>
-                                    <option value="">Select timeframe</option>
-                                    <option value="1">Immediately — I'm making an offer</option>
+                                    <option value="" disabled selected>Select timeframe</option>
+                                    <option value="1">Immediately - I'm making an offer</option>
                                     <option value="2">Currently shopping &amp; considering options</option>
                                     <option value="3">Soon, within next couple of months</option>
                                     <option value="4">In next 3 months</option>
@@ -97,7 +108,7 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                               <label for="reason">Reason for wanting to sell <span>*</span></label>
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="reason" id="reason" required>
-                                    <option value="">Select reason</option>
+                                    <option value="" disabled selected>Select reason</option>
                                     <option value="1">Financial Hardship</option>
                                     <option value="2">Forbearance / Foreclosure</option>
                                     <option value="3">Inherited</option>
@@ -116,7 +127,7 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                               <label for="occupancy">Occupancy of the property <span>*</span></label>
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="occupancy" id="occupancy" required>
-                                    <option value="">Select occupancy</option>
+                                    <option value="" disabled selected>Select occupancy</option>
                                     <option value="1">Owner Occupied</option>
                                     <option value="2">Tenant Occupied</option>
                                     <option value="3">Vacant</option>
@@ -128,7 +139,7 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                               <label for="behind_mortgage_payments">Behind on mortgage payments? <span>*</span></label>
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="behind_mortgage_payments" id="behind_mortgage_payments" required>
-                                    <option value="">Select an option</option>
+                                    <option value="" disabled selected>Select an option</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                  </select>
@@ -149,14 +160,16 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                               <label for="agent_found">Have you already found an agent? <span>*</span></label>
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="agent_found" id="agent_found" required>
-                                    <option value="">Select an option</option>
+                                    <option value="" disabled selected>Select an option</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                  </select>
                               </div>
                            </div>
+                        </div>
 
-                           <div class="form-group sellhome-span-2">
+                        <div class="sellhome-form-grid sellhome-grid-address">
+                           <div class="form-group sellhome-span-3">
                               <label for="address">Street Address <span>*</span></label>
                               <input type="text" class="form-control required" name="address" id="address" maxlength="250" placeholder="Property street address" required>
                            </div>
@@ -175,10 +188,10 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                               <label for="credit_rating">Estimated Credit Score <span>*</span></label>
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="credit_rating" id="credit_rating" required>
-                                    <option value="">Select credit score</option>
+                                    <option value="" disabled selected>Select credit score</option>
                                     <option value="1">Excellent (720+)</option>
-                                    <option value="3">Good (719 – 680)</option>
-                                    <option value="2">Fair (679 – 640)</option>
+                                    <option value="3">Good (719 - 680)</option>
+                                    <option value="2">Fair (679 - 640)</option>
                                     <option value="4">Poor (&lt; 639)</option>
                                  </select>
                               </div>
@@ -188,7 +201,7 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                               <label for="employment_type">Employment type <span>*</span></label>
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="employment_type" id="employment_type" required>
-                                    <option value="">Select employment type</option>
+                                    <option value="" disabled selected>Select employment type</option>
                                     <option value="1">Employed</option>
                                     <option value="2">Self Employed</option>
                                     <option value="4">Benefits</option>
@@ -201,7 +214,7 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                               <label for="bankruptcy">Bankruptcy / foreclosure in past 3 years? <span>*</span></label>
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="bankruptcy" id="bankruptcy" required>
-                                    <option value="">Select an option</option>
+                                    <option value="" disabled selected>Select an option</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                  </select>
@@ -212,7 +225,7 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                               <label for="num_mortgage_lates">Late payments in the past year? <span>*</span></label>
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="num_mortgage_lates" id="num_mortgage_lates" required>
-                                    <option value="">Select an option</option>
+                                    <option value="" disabled selected>Select an option</option>
                                     <option value="0">None</option>
                                     <option value="1">One</option>
                                     <option value="2">Two or More</option>
@@ -224,7 +237,7 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                               <label for="va_loan">Served in the US military (you or spouse)? <span>*</span></label>
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="va_loan" id="va_loan" required>
-                                    <option value="">Select an option</option>
+                                    <option value="" disabled selected>Select an option</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                  </select>
@@ -294,7 +307,7 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
          <div class="row align-items-center">
             <aside class="col-lg-8">
                <h2>Looking to Buy or Refinance Instead?</h2>
-               <p>Explore mortgage options for a new purchase or refinance — get matched with lenders quickly.</p>
+               <p>Explore mortgage options for a new purchase or refinance - get matched with lenders quickly.</p>
             </aside>
             <aside class="col-lg-4 text-lg-right sellhome-cta-btns">
                <a href="index.php#stepform" class="btn btn-primary btn-lg">Buy A Home</a>

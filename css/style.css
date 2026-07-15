@@ -802,6 +802,20 @@ section {
 	top: 0;
 	width: 100%;
 }
+/* Keep hero height stable on reload before/while Slick measures slides */
+#banner {
+	overflow: hidden;
+	min-height: 420px;
+	background: #e8eef3;
+}
+#banner .slider:not(.slick-initialized) .item + .item {
+	display: none;
+}
+#banner .slick-slide:not(.slick-active) .carousel-text {
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+}
 #banner .slider .slick-track {
 	position: relative;
 	background: #000;
@@ -816,6 +830,7 @@ section {
 	top: 26%;
 	left: 0;
 	width: 100%;
+	z-index: 2;
 }
 #banner .carousel-text h2 {
 	font-size: 62px;
@@ -858,12 +873,14 @@ section {
 	transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
 }
 #banner .slider .item {
-	height: 100%;
 	position: relative;
 	z-index: 1;
+	min-height: 420px;
 }
 #banner .slider .item img.thumb {
 	width: 100%;
+	height: auto;
+	display: block;
 	transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
 	-webkit-transform: scale(1.2);
 	transform: scale(1.2);
@@ -1322,18 +1339,38 @@ footer .copy {
 	border-top: 1px solid #1b4768;
 	margin-top: 50px;
 	padding: 24px 0;
-	font-size: 15px;
+	font-size: 14px;
+	line-height: 1.4;
 	color: #c3d6e6;
 }
+footer .copy .copy-bar {
+	align-items: center;
+	flex-wrap: nowrap;
+}
+footer .copy .copy-text {
+	flex: 0 0 auto;
+	white-space: nowrap;
+}
+footer .copy .copy-links {
+	min-width: 0;
+}
 footer .copy ul {
-	text-align: right;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	white-space: nowrap;
 }
 footer .copy ul li {
 	display: inline-block;
 	border-left: 1px solid #c3d6e6;
-	line-height: 18px;
-	padding: 0 0 0 15px;
-	margin: 0 0 0 12px;
+	line-height: 1.4;
+	padding: 0 0 0 10px;
+	margin: 0 0 0 10px;
+	vertical-align: middle;
 }
 footer .copy ul li:first-child {
 	margin: 0;
@@ -1342,7 +1379,7 @@ footer .copy ul li:first-child {
 }
 footer .copy ul li a {
 	color: #c3d6e6;
-	font-size: 15px;
+	font-size: 13px;
 	text-transform: uppercase;
 }
 footer .copy ul li a:hover {
@@ -1536,11 +1573,13 @@ footer .copy ul li a:hover {
 	color: #1b222d;
 	font-size: 28px;
 	font-weight: 700;
-	margin-bottom: 8px;
+	line-height: 1.25;
+	margin: 0 0 4px;
 }
 .sellhome-form-intro p {
 	color: #566172;
 	font-size: 15px;
+	line-height: 1.45;
 	max-width: 640px;
 	margin: 0 auto;
 }
@@ -1576,6 +1615,13 @@ footer .copy ul li a:hover {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 14px 16px;
 }
+.sellhome-form-grid.sellhome-grid-4 {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	margin-bottom: 14px;
+}
+.sellhome-form-grid.sellhome-grid-address {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 .sellhome-form-grid .form-group {
 	margin-bottom: 0;
 	text-align: left;
@@ -1586,6 +1632,9 @@ footer .copy ul li a:hover {
 }
 .sellhome-form-grid .sellhome-span-2 {
 	grid-column: span 2;
+}
+.sellhome-form-grid .sellhome-span-3 {
+	grid-column: span 3;
 }
 .sellhome-form-grid label {
 	display: block;
@@ -1617,6 +1666,17 @@ footer .copy ul li a:hover {
 	padding-right: 40px;
 	background-color: #fff;
 	cursor: pointer;
+	color: #1b222d;
+}
+.sellhome-select-wrap select.form-control:invalid,
+.sellhome-select-wrap select.form-control.sellhome-placeholder {
+	color: #a8b2bc;
+}
+.sellhome-select-wrap select.form-control option {
+	color: #1b222d;
+}
+.sellhome-select-wrap select.form-control option[value=""] {
+	color: #a8b2bc;
 }
 .sellhome-select-wrap::after {
 	content: "";
@@ -1739,9 +1799,28 @@ footer .copy ul li a:hover {
 .sellhome-consent .checkbox.sellhome-check input[type="checkbox"]:checked + label:after {
 	opacity: 1 !important;
 }
+.sellhome-consent .checkbox.sellhome-check-newsletter {
+	/* Match .sellhome-consent-box horizontal padding so checkboxes line up */
+	padding-left: 12px;
+	padding-right: 14px;
+	margin-bottom: 0;
+}
 .sellhome-consent .checkbox.sellhome-check-newsletter label {
-	font-size: 9px !important;
-	color: #7a8491 !important;
+	font-size: 13px !important;
+	line-height: 22px !important;
+	color: #6a7583 !important;
+	display: flex !important;
+	align-items: center;
+	min-height: 22px;
+}
+.sellhome-consent .checkbox.sellhome-check-newsletter label:before {
+	top: 50%;
+	transform: translateY(-50%);
+}
+.sellhome-consent .checkbox.sellhome-check-newsletter label:after {
+	top: 50%;
+	margin-top: -1px;
+	transform: translateY(-50%) rotate(-45deg);
 }
 .sellhome-consent .checkbox.sellhome-check a {
 	color: #ff7841;
@@ -1768,14 +1847,95 @@ footer .copy ul li a:hover {
 	text-align: left;
 	font-size: 13px;
 }
+.sellhome-form-box.is-success {
+	max-width: 640px;
+	margin: 0 auto;
+	padding: 40px 28px;
+	border-color: #d7e6ef;
+	background: linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
+}
 .sellhome-success {
 	text-align: center;
-	padding: 36px 16px;
+	padding: 8px 8px 4px;
+}
+.sellhome-success-icon {
+	width: 64px;
+	height: 64px;
+	margin: 0 auto 18px;
+	border-radius: 50%;
+	background: #e8f6ee;
+	color: #2f9e5b;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 26px;
 }
 .sellhome-success h3 {
+	color: #1b222d;
+	margin: 0 0 10px;
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+.sellhome-success-lead {
+	color: #566172;
+	font-size: 16px;
+	line-height: 1.5;
+	max-width: 460px;
+	margin: 0 auto 22px;
+}
+.sellhome-success-next {
+	list-style: none;
+	margin: 0 auto 24px;
+	padding: 16px 18px;
+	max-width: 420px;
+	text-align: left;
+	background: #fff;
+	border: 1px solid #e2e8ee;
+	border-radius: 8px;
+}
+.sellhome-success-next li {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
 	color: #27455d;
-	margin-bottom: 12px;
-	font-size: 22px;
+	font-size: 14px;
+	line-height: 1.4;
+	margin: 0 0 10px;
+}
+.sellhome-success-next li:last-child {
+	margin-bottom: 0;
+}
+.sellhome-success-next i {
+	color: #ff7841;
+	margin-top: 2px;
+	width: 16px;
+	text-align: center;
+	flex-shrink: 0;
+}
+.sellhome-success-alt {
+	color: #7a8491;
+	font-size: 13px;
+	margin: 0 0 12px;
+}
+.sellhome-success-actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+}
+.sellhome-success-actions .btn {
+	min-width: 140px;
+}
+.sellhome-success-actions .btn-warning {
+	background: #27455d;
+	color: #fff;
+	border-color: #27455d;
+}
+.sellhome-success-actions .btn-warning:hover {
+	background: #ff7841;
+	border-color: #ff7841;
+	color: #fff;
 }
 #banner.sellhome-hero .sellhome-hero-panel {
 	background: rgba(255,255,255,.92);
@@ -1819,12 +1979,15 @@ footer .copy ul li a:hover {
 .sellhome-cta h2 {
 	color: #27455d;
 	font-size: 28px;
-	margin-bottom: 8px;
+	font-weight: 700;
+	line-height: 1.25;
+	margin: 0 0 4px;
 }
 .sellhome-cta p {
 	color: #566172;
 	margin: 0;
 	font-size: 16px;
+	line-height: 1.45;
 }
 .sellhome-cta-btns {
 	margin-top: 18px;
@@ -1843,12 +2006,45 @@ footer .copy ul li a:hover {
 	color: #fff;
 }
 
+@media (max-width: 1199px) {
+	.sellhome-form-grid.sellhome-grid-4 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+	.sellhome-form-grid.sellhome-grid-address {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+	.sellhome-form-grid.sellhome-grid-address .sellhome-span-3 {
+		grid-column: span 1;
+	}
+}
 @media (max-width: 991px) {
 	.sellhome-form-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 	.sellhome-form-grid .sellhome-span-2 {
 		grid-column: span 1;
+	}
+}
+/* Override homepage rule that hides #banner .carousel-text p below 1024px */
+@media (max-width: 1023px) {
+	#banner.sellhome-hero .carousel-text p {
+		display: block;
+		font-size: 16px;
+		line-height: 1.5;
+		max-width: 100%;
+		margin-bottom: 20px;
+	}
+	#banner.sellhome-hero h1 {
+		font-size: 36px;
+	}
+	#banner.sellhome-hero h1 small {
+		font-size: 18px;
+	}
+	.sellhome-cta h2 {
+		font-size: 24px;
+	}
+	.sellhome-cta-btns {
+		margin-top: 16px;
 	}
 }
 @media (max-width: 767px) {
@@ -1865,10 +2061,20 @@ footer .copy ul li a:hover {
 	#banner.sellhome-hero h1 {
 		font-size: 32px;
 	}
-	.sellhome-form-grid {
+	#banner.sellhome-hero h1 small {
+		font-size: 16px;
+	}
+	#banner.sellhome-hero .carousel-text p {
+		font-size: 15px;
+		margin-bottom: 18px;
+	}
+	.sellhome-form-grid,
+	.sellhome-form-grid.sellhome-grid-4,
+	.sellhome-form-grid.sellhome-grid-address {
 		grid-template-columns: 1fr;
 	}
-	.sellhome-form-grid .sellhome-span-2 {
+	.sellhome-form-grid .sellhome-span-2,
+	.sellhome-form-grid .sellhome-span-3 {
 		grid-column: 1 / -1;
 	}
 	.sellhome-form-box {
@@ -1876,6 +2082,24 @@ footer .copy ul li a:hover {
 	}
 	.sellhome-form-section {
 		padding: 36px 0 24px;
+	}
+	.sellhome-form-intro h2 {
+		font-size: 24px;
+	}
+	.sellhome-form-box.is-success {
+		padding: 28px 16px;
+	}
+	.sellhome-success h3 {
+		font-size: 24px;
+	}
+	.sellhome-success-actions .btn {
+		width: 100%;
+	}
+	.sellhome-consent .checkbox.sellhome-check label {
+		font-size: 11px !important;
+	}
+	.sellhome-consent .checkbox.sellhome-check-newsletter label {
+		font-size: 13px !important;
 	}
 }
 

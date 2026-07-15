@@ -10,19 +10,50 @@ locationBtn: ''
 });
 //============= slick slider =============
 
-//Main Banner Start
-$('.slider').slick({
-  draggable: true,
-  arrows: false,
-  dots: true,
-  fade: true,
-  autoplay: true,
-  autoplaySpeed: 5000,
-  speed: 1000,
-  infinite: true,
-  cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
-  touchThreshold: 100
-});
+// Main banner: wait for images so Slick fade doesn't collapse height on reload
+function initBannerSlider() {
+  var $slider = $('#banner .slider');
+  if (!$slider.length || $slider.hasClass('slick-initialized')) {
+    return;
+  }
+  $slider.slick({
+    draggable: true,
+    arrows: false,
+    dots: true,
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    speed: 1000,
+    infinite: true,
+    cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+    touchThreshold: 100
+  });
+}
+
+function whenBannerImagesReady(done) {
+  var $imgs = $('#banner .slider img.thumb');
+  if (!$imgs.length) {
+    done();
+    return;
+  }
+  var pending = $imgs.length;
+  var finish = function () {
+    pending -= 1;
+    if (pending <= 0) {
+      done();
+    }
+  };
+  $imgs.each(function () {
+    if (this.complete && this.naturalWidth) {
+      finish();
+    } else {
+      $(this).one('load error', finish);
+    }
+  });
+}
+
+whenBannerImagesReady(initBannerSlider);
+$(window).on('load', initBannerSlider);
 //sticky Header //
 $(window).scroll(function () {
 var scroll = $(window).scrollTop();
