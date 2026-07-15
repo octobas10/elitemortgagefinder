@@ -1,0 +1,239 @@
+
+@media (min-width: 1024px) {
+}
+
+@media (min-width: 1280px) {
+.container {
+	width: 1200px;
+}
+}
+
+@media (min-width: 1441px) {
+.slick-prev {
+	left: 20px;
+}
+.slick-next {
+	right: 20px;
+}
+}
+
+@media (min-width: 1600px) {
+}
+
+@media (min-width: 1681px) {
+}
+
+@media (max-width: 1367px) {
+#banner .carousel-text {
+	top: 20%;
+}
+}
+
+@media (max-width: 1359px) {
+.container-fluid, .top-feature .container-fluid {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.slick-prev {
+	left: 20px;
+}
+.slick-next {
+	right: 20px;
+}
+.slider .slick-prev:before, .slider .slick-next:before {
+	font-size: 32px;
+}
+#banner .carousel-text {
+	top: 17%;
+}
+}
+
+@media (max-width: 1153px) {
+.container {
+	width: 100%;
+	max-width: inherit;
+}
+#banner .carousel-text h2 small {
+	font-size: 52px;
+}
+#banner .carousel-text h2 {
+	font-size: 48px;
+	line-height: 58px;
+	margin-bottom: 15px;
+}
+#banner .carousel-text p {
+	font-size: 17px;
+	margin-bottom: 20px;
+}
+main.main, .HomeForm {
+	margin-top: 70px;
+}
+.why-choose-us {
+	margin: 70px 0;
+}
+.HomeForm {
+	padding: 50px 0px;
+}
+.magic-radio-group label.control-label {
+	display: block;
+}
+.why-choose-us .choose-us-item h4 {
+	font-size: 20px;
+	line-height: 28px;
+}
+p, body {
+	font-size: 16px;
+	line-height: 26px;
+}
+.why-choose-us .choose-us-item h4 {
+	margin-bottom: 20px;
+}
+.expert-guidance .opacity {
+	padding: 70px 0;
+}
+.expert-guidance .opacity h3 {
+	margin: 0;
+}
+.expert-guidance .expert-item {
+	padding: 30px 25px 27px 25px;
+}
+.top-feature {
+	margin: 50px 0;
+}
+.icon-wrapper {
+	font-size: 40px;
+	width: 80px;
+}
+.icon-content {
+	padding: 25px 18px 23px 100px;
+}
+.icon-content:before {
+	left: 80px;
+}
+footer .opacity {
+	padding-top: 50px;
+}
+footer h3 {
+	font-size: 28px;
+}
+#backtop {
+	bottom: 85px;
+}
+}
+
+@media (max-width: 1023px) {
+.calllist {
+	display: none;
+}
+.btnlist {
+	margin-right: 80px;
+}
+.AboutArea h3 {
+	padding-right: 0;
+}
+.AboutArea .btn {
+	margin-right: 0;
+	margin-bottom: 30px;
+}
+#banner .carousel-text p {
+	display: none;
+}
+.tab-content {
+	margin-top: 30px;
+}
+.single-feature {
+	margin-bottom: 15px;
+}
+.top-feature {
+	margin: 50px 0 35px;
+}
+footer h3 {
+	margin-top: 30px;
+}
+footer .form-group {
+	margin-bottom: 15px;
+}
+.stellarnav ul li.bg {
+	margin: 0;
+	display: block;
+}
+.stellarnav.dark li.hover-bg a, .site-header.sticky .stellarnav.dark li.hover-bg a {
+	display: block;
+	color: #FFF;
+	padding: 5px 15px;
+}
+#banner .carousel-text h2 {
+	font-size: 32px;
+	line-height: 42px;
+	margin-bottom: 15px;
+}
+#banner .carousel-text h2 small {
+	font-size: 28px;
+}
+.btn-lg {
+	padding: 14px 28px;
+	font-size: 17px;
+}
+}
+
+@media (max-width: 767px) {
+.btnlist {
+	display: none;
+}
+.AboutArea h3, h3 {
+	font-size: 26px;
+}
+footer .copy {
+	text-align: center;
+}
+footer .copy ul {
+	text-align: center;
+	margin-top: 15px;
+}
+#backtop {
+	bottom: 35px;
+}
+}
+
+@media (max-width: 690px) {
+}
+
+@media (max-width: 567px) {
+#banner .slider .slick-track .item {
+	height: 250px;
+	overflow: hidden;
+}
+#banner .slider .item img.thumb {
+	height: 250px;
+	object-fit: cover;
+}
+.form-control {
+	font-size: 15px;
+}
+footer .copy ul li a, footer .copy {
+	font-size: 14px;
+	line-height: 18px;
+}
+footer .copy ul li {
+	line-height: 16px;
+	padding: 0 0 0 7px;
+	margin: 0 0 0 3px;
+}
+footer h3 {
+	font-size: 22px;
+}
+.btn-lg {
+	padding: 12px 22px;
+	font-size: 15px;
+}
+.AboutArea h3, h3 {
+	font-size: 22px;
+	line-height: 28px;
+}
+}
+
+@media (max-width: 376px) {
+#banner .carousel-text .btn {
+	margin-right: 0;
+}
+}
