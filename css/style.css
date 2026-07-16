@@ -1641,7 +1641,8 @@ footer .copy ul li a:hover {
 	font-weight: 600;
 	color: #1b222d;
 	margin-bottom: 6px;
-	font-size: 13px;
+	font-size: 16px;
+	line-height: 1.35;
 }
 .sellhome-form-grid label span {
 	color: #ff7841;
