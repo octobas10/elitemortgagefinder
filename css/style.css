@@ -1941,7 +1941,7 @@ footer .copy ul li a:hover {
 #banner.sellhome-hero .sellhome-hero-panel {
 	background: rgba(255,255,255,.92);
 	border-radius: 10px;
-	padding: 22px 24px;
+	padding: 12px 24px;
 	box-shadow: 0 10px 28px rgba(0,0,0,.18);
 	color: #1b222d;
 }
@@ -2188,4 +2188,7 @@ footer .copy ul li a:hover {
 
 #banner .carousel-text .btn {
 	margin: 0 8px 10px 0;
+}
+.align-items-center{
+	align-items: end!important;
 }
