@@ -68,6 +68,7 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
 
             <form id="sellhomeform" name="sellhomeform" method="post" action="" novalidate>
                      <input type="hidden" name="lead_type" value="SellHome" />
+                     <input type="hidden" name="mortgage_lead_type" value="5" />
                      <input type="hidden" name="promo_code" value="<?php echo htmlspecialchars($promo_code); ?>" id="promo_code" />
                      <input type="hidden" name="sub_id" value="<?php echo htmlspecialchars($sub_id); ?>" id="sub_id" />
                      <input type="hidden" name="sub_id2" value="<?php echo htmlspecialchars($sub_id2); ?>" id="sub_id2" />

@@ -107,6 +107,7 @@ if($action == 'sellhome_submit'){
 	}
 
 	$promo_code = isset($_REQUEST['promo_code']) ? $_REQUEST['promo_code'] : '';
+	$mortgage_lead_type = isset($_REQUEST['mortgage_lead_type']) ? $_REQUEST['mortgage_lead_type'] : '';
 	$sub_id = isset($_REQUEST['sub_id']) ? $_REQUEST['sub_id'] : '';
 	$subid = isset($_REQUEST['subid']) ? $_REQUEST['subid'] : '';
 	$sub_id = !empty($sub_id) ? $sub_id : $subid;
@@ -115,6 +116,7 @@ if($action == 'sellhome_submit'){
 	$sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
 
 	$_SESSION['promo_code'] = $promo_code;
+	$_SESSION['mortgage_lead_type'] = $mortgage_lead_type;
 	$_SESSION['sub_id'] = $sub_id;
 	$_SESSION['sub_id2'] = $sub_id2;
 	$_SESSION['universal_leadid'] = isset($_REQUEST['universal_leadid']) ? $_REQUEST['universal_leadid'] : '';
@@ -125,7 +127,6 @@ if($action == 'sellhome_submit'){
 	if(!empty($pixel)){
 		// Affiliate pixel fired; response is handled server-side for this full-form flow.
 	}
-
 	if (isset($_REQUEST['chk_arcamax']) && $_REQUEST['chk_arcamax'] == 'Y') {
 		$url = 'https://elitecashwire.com/arcamax.php';
 		$fields = [
@@ -155,11 +156,9 @@ if($action == 'sellhome_submit'){
 	$data['datetime_stamp'] = date('Y-m-d h:m:s');
 	$data['loan_type'] = 5;
 	$data['loan_amount'] = isset($data['estimate_value']) ? $data['estimate_value'] : 85000;
-
 	$request = http_build_query($data);
 	$url = 'https://elitebizpanel.com/mortgage/postprocess';
 	$result = curlposting($url, $request);
-
 	header('Content-Type: application/json');
 	echo json_encode([
 		'success' => 'success',
