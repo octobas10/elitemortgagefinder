@@ -70,7 +70,7 @@
                                  </ul>
                                  <ul class="btnlist">
                                     <!-- <li class="bg hover-bg bg-btn"><a href="index.php#stepform" class="btn btn-outline-primary btn-round btn-sm">Apply Now</a></li> -->
-                                    <li class="bg hover-bg bg-btn"><a href="index.php#stepform" class="btn btn-outline-warning btn-round btn-sm">Get a Quote</a></li>
+                                    <li class="bg hover-bg bg-btn"><a href="sellhome.php" class="btn btn-outline-warning btn-round btn-sm">Sell Home</a></li>
                                  </ul>
                               </aside>
                            </div>
@@ -84,7 +84,6 @@
                                  <li class="bg hover-bg<?php echo (isset($nav_active) && $nav_active === 'about') ? ' active' : ''; ?>"><a href="aboutus.php">About Us</a></li>
                                  <li class="bg hover-bg<?php echo (isset($nav_active) && $nav_active === 'refinance') ? ' active' : ''; ?>"><a href="refinance.php">REFINANCE</a></li>
                                  <li class="bg hover-bg<?php echo (isset($nav_active) && $nav_active === 'buy') ? ' active' : ''; ?>"><a href="buyahouse.php">BUY A HOUSE</a></li>
-                                 <li class="bg hover-bg<?php echo (isset($nav_active) && $nav_active === 'sellhome') ? ' active' : ''; ?>"><a href="sellhome.php">SELL HOME</a></li>
                                  <li class="bg hover-bg<?php echo (isset($nav_active) && $nav_active === 'homeloan') ? ' active' : ''; ?>"><a href="homeloan.php">HOME LOANS</a></li>
                                  <li class="bg hover-bg<?php echo (isset($nav_active) && $nav_active === 'rates') ? ' active' : ''; ?>"><a href="mortgagerates.php">MORTGAGE RATES</a></li>
                               </ul>
