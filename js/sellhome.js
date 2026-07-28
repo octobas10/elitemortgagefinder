@@ -66,8 +66,23 @@
       ignore: [],
       rules: {
         'terms[]': { required: true },
+        zip: { required: true, minlength: 5, maxlength: 5 },
         phone: { minlength: 10, maxlength: 10 },
-        zip: { minlength: 5, maxlength: 5 }
+        email: { email: true },
+        property_desc: { required: true },
+        property_use: { required: true },
+        sell_timeframe: { required: true },
+        reason: { required: true },
+        occupancy: { required: true },
+        behind_mortgage_payments: { required: true },
+        agent_found: { required: true },
+        bank_foreclosure: { required: true },
+        estimate_value: { required: true },
+        rate_type: { required: true },
+        loan_type: { required: true },
+        credit_rating: { required: true },
+        bankruptcy: { required: true },
+        num_mortgage_lates: { required: true }
       },
       messages: {
         'terms[]': 'Please agree to the Terms and Privacy Policy to continue.'

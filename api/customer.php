@@ -143,19 +143,34 @@ if($action == 'sellhome_submit'){
 	$zip = isset($data['zip']) ? $data['zip'] : '';
 	$response = @file_get_contents('https://elitecashwire.com/get_city_state_from_zip.php?zip='.$zip);
 	$citystate = json_decode($response);
+	$estimate_value = isset($data['estimate_value']) ? $data['estimate_value'] : '';
+	$tcpa_text = 'By checking this box, I affirm that I have read, understand, and agree to the Terms of Use Agreement and Privacy Policy, I authorize EliteMortgageFinder.com and its Marketing Partners to obtain my consumer report, credit profile, or other credit information associated with me from any consumer reporting agency for purposes of my inquiry. Consent is not required as a condition of purchasing any services or products. I provide my express written consent to EliteMortgageFinder.com and up to five (5) Marketing Partners to contact me via telephone calls, text messages, and/or email including for marketing purposes.';
+
 	$data['ipaddress'] = $_SERVER['REMOTE_ADDR'];
+	$data['user_agent'] = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+	$data['url'] = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'www.elitemortgagefinder.com') . '/sellhome.php';
 	$data['lead_mode'] = 1;
+	$data['promo_code'] = $_SESSION['promo_code'];
 	$data['sub_id'] = $_SESSION['sub_id'];
 	$data['universal_leadid'] = $_SESSION['universal_leadid'];
 	$data['trustedformcerturl'] = $_SESSION['trustedformcerturl'];
 	$data['tcpa_optin'] = 1;
-	$data['tcpa_text'] = 'sell home form submit';
+	$data['tcpa_text'] = substr($tcpa_text, 0, 200);
 	$data['property_zip'] = $zip;
 	$data['property_state'] = (!empty($citystate) && !empty($citystate->state)) ? $citystate->state : 'NY';
 	$data['state'] = (!empty($citystate) && !empty($citystate->state)) ? $citystate->state : 'NY';
-	$data['datetime_stamp'] = date('Y-m-d h:m:s');
-	$data['loan_type'] = 5;
-	$data['loan_amount'] = isset($data['estimate_value']) ? $data['estimate_value'] : 85000;
+	$data['datetime_stamp'] = date('Y-m-d H:i:s');
+	$data['mortgage_lead_type'] = 5;
+	$data['estimate_value'] = $estimate_value;
+	$data['property_value'] = $estimate_value;
+	$data['loan_amount'] = $estimate_value !== '' ? $estimate_value : 85000;
+	if (isset($data['dob']) && $data['dob'] !== '') {
+		$dob_ts = strtotime(str_replace('-', '/', $data['dob']));
+		if ($dob_ts) {
+			$data['dob'] = date('Y-m-d', $dob_ts);
+		}
+	}
+
 	$request = http_build_query($data);
 	$url = 'https://elitebizpanel.com/mortgage/postprocess';
 	$result = curlposting($url, $request);

@@ -87,6 +87,19 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                                     <option value="2">Multi Family</option>
                                     <option value="3">Town House</option>
                                     <option value="4">Condominium</option>
+                                    <option value="5">Mobile Home</option>
+                                 </select>
+                              </div>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="property_use">Property use <span>*</span></label>
+                              <div class="sellhome-select-wrap">
+                                 <select class="form-control required" name="property_use" id="property_use" required>
+                                    <option value="" disabled selected>Select property use</option>
+                                    <option value="1">Primary Residence</option>
+                                    <option value="2">Second Home</option>
+                                    <option value="3">Investment Property</option>
                                  </select>
                               </div>
                            </div>
@@ -96,11 +109,11 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="sell_timeframe" id="sell_timeframe" required>
                                     <option value="" disabled selected>Select timeframe</option>
-                                    <option value="1">Immediately - I'm making an offer</option>
-                                    <option value="2">Currently shopping &amp; considering options</option>
-                                    <option value="3">Soon, within next couple of months</option>
-                                    <option value="4">In next 3 months</option>
-                                    <option value="5">Not sure</option>
+                                    <option value="1">Immediately</option>
+                                    <option value="2">Up to 30 days</option>
+                                    <option value="3">Up to 60 days</option>
+                                    <option value="4">Up to 90 days</option>
+                                    <option value="5">No time constraint</option>
                                  </select>
                               </div>
                            </div>
@@ -148,16 +161,6 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                            </div>
 
                            <div class="form-group">
-                              <label for="estimate_value">Estimated property value ($) <span>*</span></label>
-                              <input type="text" class="form-control required number_only" name="estimate_value" id="estimate_value" maxlength="10" placeholder="e.g. 350000" required>
-                           </div>
-
-                           <div class="form-group">
-                              <label for="ltv_percentage">Loan To Value (LTV %) <span>*</span></label>
-                              <input type="text" class="form-control required number_only" name="ltv_percentage" id="ltv_percentage" maxlength="3" placeholder="e.g. 70" required>
-                           </div>
-
-                           <div class="form-group">
                               <label for="agent_found">Have you already found an agent? <span>*</span></label>
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="agent_found" id="agent_found" required>
@@ -167,12 +170,58 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                                  </select>
                               </div>
                            </div>
+
+                           <div class="form-group">
+                              <label for="bank_foreclosure">Is this property a bank foreclosure? <span>*</span></label>
+                              <div class="sellhome-select-wrap">
+                                 <select class="form-control required" name="bank_foreclosure" id="bank_foreclosure" required>
+                                    <option value="" disabled selected>Select an option</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                 </select>
+                              </div>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="estimate_value">Estimated property value ($) <span>*</span></label>
+                              <input type="text" class="form-control required number_only" name="estimate_value" id="estimate_value" maxlength="10" placeholder="e.g. 350000" required>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="rate_type">Rate type <span>*</span></label>
+                              <div class="sellhome-select-wrap">
+                                 <select class="form-control required" name="rate_type" id="rate_type" required>
+                                    <option value="" disabled selected>Select rate type</option>
+                                    <option value="1">Fixed Rate</option>
+                                    <option value="2">Adjustable Rate</option>
+                                    <option value="3">Fixed / Adjustable</option>
+                                 </select>
+                              </div>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="loan_type">Loan type <span>*</span></label>
+                              <div class="sellhome-select-wrap">
+                                 <select class="form-control required" name="loan_type" id="loan_type" required>
+                                    <option value="" disabled selected>Select loan type</option>
+                                    <option value="1">VA Loan</option>
+                                    <option value="2">FHA Loan</option>
+                                    <option value="3">Conventional Loan</option>
+                                    <option value="4">Other</option>
+                                 </select>
+                              </div>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="ltv_percentage">Loan To Value (LTV %)</label>
+                              <input type="text" class="form-control number_only" name="ltv_percentage" id="ltv_percentage" maxlength="3" placeholder="e.g. 70 (optional)">
+                           </div>
                         </div>
 
                         <div class="sellhome-form-grid sellhome-grid-address">
                            <div class="form-group sellhome-span-3">
-                              <label for="address">Street Address <span>*</span></label>
-                              <input type="text" class="form-control required" name="address" id="address" maxlength="250" placeholder="Property street address" required>
+                              <label for="address">Street Address</label>
+                              <input type="text" class="form-control" name="address" id="address" maxlength="250" placeholder="Property street address">
                            </div>
 
                            <div class="form-group">
@@ -190,29 +239,16 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="credit_rating" id="credit_rating" required>
                                     <option value="" disabled selected>Select credit score</option>
-                                    <option value="1">Excellent (720+)</option>
-                                    <option value="3">Good (719 - 680)</option>
-                                    <option value="2">Fair (679 - 640)</option>
-                                    <option value="4">Poor (&lt; 639)</option>
+                                    <option value="1">Excellent</option>
+                                    <option value="2">Good</option>
+                                    <option value="3">Fair</option>
+                                    <option value="4">Poor</option>
                                  </select>
                               </div>
                            </div>
 
                            <div class="form-group">
-                              <label for="employment_type">Employment type <span>*</span></label>
-                              <div class="sellhome-select-wrap">
-                                 <select class="form-control required" name="employment_type" id="employment_type" required>
-                                    <option value="" disabled selected>Select employment type</option>
-                                    <option value="1">Employed</option>
-                                    <option value="2">Self Employed</option>
-                                    <option value="4">Benefits</option>
-                                    <option value="3">Fixed Income</option>
-                                 </select>
-                              </div>
-                           </div>
-
-                           <div class="form-group">
-                              <label for="bankruptcy">Bankruptcy / foreclosure in past 3 years? <span>*</span></label>
+                              <label for="bankruptcy">Filed for bankruptcy in the past 7 years? <span>*</span></label>
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="bankruptcy" id="bankruptcy" required>
                                     <option value="" disabled selected>Select an option</option>
@@ -223,7 +259,7 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                            </div>
 
                            <div class="form-group">
-                              <label for="num_mortgage_lates">Late payments in the past year? <span>*</span></label>
+                              <label for="num_mortgage_lates">How many mortgage lates previously? <span>*</span></label>
                               <div class="sellhome-select-wrap">
                                  <select class="form-control required" name="num_mortgage_lates" id="num_mortgage_lates" required>
                                     <option value="" disabled selected>Select an option</option>
@@ -235,10 +271,10 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                            </div>
 
                            <div class="form-group">
-                              <label for="va_loan">Served in the US military (you or spouse)? <span>*</span></label>
+                              <label for="va_loan">Is this a VA loan?</label>
                               <div class="sellhome-select-wrap">
-                                 <select class="form-control required" name="va_loan" id="va_loan" required>
-                                    <option value="" disabled selected>Select an option</option>
+                                 <select class="form-control" name="va_loan" id="va_loan">
+                                    <option value="" disabled selected>Select an option (optional)</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                  </select>
@@ -246,33 +282,33 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                            </div>
 
                            <div class="form-group">
-                              <label for="income">Annual Income ($) <span>*</span></label>
-                              <input type="text" class="form-control required number_only" name="income" id="income" maxlength="8" placeholder="Annual Income" required>
+                              <label for="first_name">First Name</label>
+                              <input type="text" class="form-control" name="first_name" id="first_name" maxlength="100" placeholder="First Name">
                            </div>
 
                            <div class="form-group">
-                              <label for="first_name">First Name <span>*</span></label>
-                              <input type="text" class="form-control required" name="first_name" id="first_name" maxlength="100" placeholder="First Name" required>
+                              <label for="last_name">Last Name</label>
+                              <input type="text" class="form-control" name="last_name" id="last_name" maxlength="100" placeholder="Last Name">
                            </div>
 
                            <div class="form-group">
-                              <label for="last_name">Last Name <span>*</span></label>
-                              <input type="text" class="form-control required" name="last_name" id="last_name" maxlength="100" placeholder="Last Name" required>
+                              <label for="email">Email</label>
+                              <input type="email" class="form-control email" name="email" id="email" maxlength="250" placeholder="Email Address">
                            </div>
 
                            <div class="form-group">
-                              <label for="email">Email <span>*</span></label>
-                              <input type="email" class="form-control required email" name="email" id="email" maxlength="250" placeholder="Email Address" required>
+                              <label for="phone">Phone Number</label>
+                              <input type="text" class="form-control number_only" name="phone" id="phone" maxlength="10" placeholder="10-digit phone number">
                            </div>
 
                            <div class="form-group">
-                              <label for="phone">Phone Number <span>*</span></label>
-                              <input type="text" class="form-control required number_only" name="phone" id="phone" maxlength="10" placeholder="10-digit phone number" required>
+                              <label for="dob">Date of Birth</label>
+                              <input type="text" class="form-control" name="dob" id="dob" maxlength="12" placeholder="MM/DD/YYYY">
                            </div>
 
-                           <div class="form-group">
-                              <label for="dob">Date of Birth <span>*</span></label>
-                              <input type="text" class="form-control required" name="dob" id="dob" maxlength="12" placeholder="MM/DD/YYYY" required>
+                           <div class="form-group sellhome-span-2">
+                              <label for="comments">Additional comments</label>
+                              <input type="text" class="form-control" name="comments" id="comments" maxlength="500" placeholder="Optional">
                            </div>
                         </div>
                      </fieldset>
