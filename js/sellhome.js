@@ -67,8 +67,11 @@
       rules: {
         'terms[]': { required: true },
         zip: { required: true, minlength: 5, maxlength: 5 },
-        phone: { minlength: 10, maxlength: 10 },
-        email: { email: true },
+        address: { required: true },
+        first_name: { required: true },
+        last_name: { required: true },
+        phone: { required: true, minlength: 10, maxlength: 10 },
+        email: { required: true, email: true },
         property_desc: { required: true },
         property_use: { required: true },
         sell_timeframe: { required: true },

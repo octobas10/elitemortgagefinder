@@ -220,8 +220,8 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
 
                         <div class="sellhome-form-grid sellhome-grid-address">
                            <div class="form-group sellhome-span-3">
-                              <label for="address">Street Address</label>
-                              <input type="text" class="form-control" name="address" id="address" maxlength="250" placeholder="Property street address">
+                              <label for="address">Street Address <span>*</span></label>
+                              <input type="text" class="form-control required" name="address" id="address" maxlength="250" placeholder="Property street address" required>
                            </div>
 
                            <div class="form-group">
@@ -282,23 +282,23 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                            </div>
 
                            <div class="form-group">
-                              <label for="first_name">First Name</label>
-                              <input type="text" class="form-control" name="first_name" id="first_name" maxlength="100" placeholder="First Name">
+                              <label for="first_name">First Name <span>*</span></label>
+                              <input type="text" class="form-control required" name="first_name" id="first_name" maxlength="100" placeholder="First Name" required>
                            </div>
 
                            <div class="form-group">
-                              <label for="last_name">Last Name</label>
-                              <input type="text" class="form-control" name="last_name" id="last_name" maxlength="100" placeholder="Last Name">
+                              <label for="last_name">Last Name <span>*</span></label>
+                              <input type="text" class="form-control required" name="last_name" id="last_name" maxlength="100" placeholder="Last Name" required>
                            </div>
 
                            <div class="form-group">
-                              <label for="email">Email</label>
-                              <input type="email" class="form-control email" name="email" id="email" maxlength="250" placeholder="Email Address">
+                              <label for="email">Email <span>*</span></label>
+                              <input type="email" class="form-control required email" name="email" id="email" maxlength="250" placeholder="Email Address" required>
                            </div>
 
                            <div class="form-group">
-                              <label for="phone">Phone Number</label>
-                              <input type="text" class="form-control number_only" name="phone" id="phone" maxlength="10" placeholder="10-digit phone number">
+                              <label for="phone">Phone Number <span>*</span></label>
+                              <input type="text" class="form-control required number_only" name="phone" id="phone" maxlength="10" placeholder="10-digit phone number" required>
                            </div>
 
                            <div class="form-group">
