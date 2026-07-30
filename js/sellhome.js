@@ -85,7 +85,9 @@
         loan_type: { required: true },
         credit_rating: { required: true },
         bankruptcy: { required: true },
-        num_mortgage_lates: { required: true }
+        num_mortgage_lates: { required: true },
+        employment_type: { required: true },
+        income: { required: true }
       },
       messages: {
         'terms[]': 'Please agree to the Terms and Privacy Policy to continue.'

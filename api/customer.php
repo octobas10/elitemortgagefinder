@@ -164,6 +164,11 @@ if($action == 'sellhome_submit'){
 	$data['estimate_value'] = $estimate_value;
 	$data['property_value'] = $estimate_value;
 	$data['loan_amount'] = $estimate_value !== '' ? $estimate_value : 85000;
+	$data['employment_type'] = isset($data['employment_type']) ? $data['employment_type'] : '';
+	$data['income'] = isset($data['income']) ? preg_replace('/[^0-9]/', '', $data['income']) : '';
+	if (isset($data['phone'])) {
+		$data['phone'] = preg_replace('/[^0-9]/', '', $data['phone']);
+	}
 	if (isset($data['dob']) && $data['dob'] !== '') {
 		$dob_ts = strtotime(str_replace('-', '/', $data['dob']));
 		if ($dob_ts) {

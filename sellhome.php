@@ -282,6 +282,24 @@ $sub_id2 = !empty($sub_id2) ? $sub_id2 : $subid2;
                            </div>
 
                            <div class="form-group">
+                              <label for="employment_type">Employment type <span>*</span></label>
+                              <div class="sellhome-select-wrap">
+                                 <select class="form-control required" name="employment_type" id="employment_type" required>
+                                    <option value="" disabled selected>Select employment type</option>
+                                    <option value="1">Employed</option>
+                                    <option value="2">Self Employed</option>
+                                    <option value="4">Benefits</option>
+                                    <option value="3">Fixed Income</option>
+                                 </select>
+                              </div>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="income">Annual Income ($) <span>*</span></label>
+                              <input type="text" class="form-control required number_only" name="income" id="income" maxlength="8" placeholder="Annual Income" required>
+                           </div>
+
+                           <div class="form-group">
                               <label for="first_name">First Name <span>*</span></label>
                               <input type="text" class="form-control required" name="first_name" id="first_name" maxlength="100" placeholder="First Name" required>
                            </div>
